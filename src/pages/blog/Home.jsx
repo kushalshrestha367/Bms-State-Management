@@ -9,6 +9,7 @@ import Card5 from './components/card/Card5'
 import Footer from './components/footer'
 
 const Home = () => {
+    
   return (
   <Layout>
    <div className='flex flex-wrap justify-center space-x-6 mt-7' >

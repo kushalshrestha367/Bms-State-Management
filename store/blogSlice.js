@@ -26,26 +26,33 @@ export default blogSlice.reducer
 
 
 
-export function addBlog(data){
-    return async function addBlogThunk(dispatch){
-        dispatch(setStatus(STATUSES.LOADING))
-        try {
-            const response = await API.post('blog',data,{
-                headers:{
-                  'Content-Type': 'multipart/form-data'
-                }
-            })
-            if(response.status === 201){
-                dispatch(setStatus(STATUSES.SUCCESS))
-            }
-            else{
-                dispatch(setStatus(STATUSES.ERROR))
-            }
-        } catch (error) {
-            dispatch(setStatus(STATUSES.ERROR))
+export function addBlog(data) {
+  return async function addBlogThunk(dispatch) {
+    dispatch(setStatus(STATUSES.LOADING));
+
+    try {
+      const token = localStorage.getItem('token'); // ✅ Get token here
+      console.log(token);
+      
+
+      const response = await API.post('blog', data, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'Authorization': localStorage.getItem('token')
         }
+      });
+
+      if (response.status === 201) {
+        dispatch(setStatus(STATUSES.SUCCESS));
+      } else {
+        dispatch(setStatus(STATUSES.ERROR));
+      }
+    } catch (error) {
+      dispatch(setStatus(STATUSES.ERROR));
     }
+  };
 }
+
 
 export function fetchBlog(){
     return async function addBlogThunk(dispatch){

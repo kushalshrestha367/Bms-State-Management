@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Card = () => {
+const Card = (blog) => {
   return (
  < Link to = "/blog/id">
      <div className="max-w-sm rounded overflow-hidden shadow-lg mb-7">
