@@ -59,7 +59,7 @@ export function fetchBlog(){
         dispatch(setStatus(STATUSES.LOADING))
         try {
             const response = await API.get('blog')
-            if(response.status === 201 && response.data.blog.length > 0){
+            if(response.status === 200 && response.data.blog.length > 0){
                 dispatch(setBlog(response.data.blog))
                 dispatch(setStatus(STATUSES.SUCCESS))
             }

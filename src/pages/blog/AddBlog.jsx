@@ -15,6 +15,11 @@ const AddBlog = () => {
 
   const handleCreateBlog = (data) =>{
     dispatch(addBlog(data))
+    // if(status === STATUSES.SUCCESS){
+    //   return navigate('/')
+    // }else{
+    //   return navigate('/blog/add')
+    // }
   }
 
   useEffect(() => {

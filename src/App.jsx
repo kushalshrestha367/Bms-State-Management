@@ -11,6 +11,8 @@ import { Provider } from 'react-redux';
 import store from '../store/store'
 import Protected from './Protected'
 import { lazy, Suspense } from 'react'
+import Parent from './pages/useCallBack/Parent'
+import Hooks from './hookP/Hooks'
 
 const SingleBlog = lazy(() => import ('./pages/blog/SingleBlog'))
 
@@ -34,9 +36,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path='/blog/add' element={<Protected><AddBlog /></Protected>} />
+        <Route path='/blog/add' element={<AddBlog />} />
         <Route path='/blog/edit' element={<EditBlog />} />
         <Route path='/blog/id' element={<SingleBlog />} />
+        <Route path='/usecallback' element={<Parent />} />
+        <Route path='/hooks' element={<Hooks />} />
       </Routes>
       </Suspense>
       {/* </ErrorBoundary> */}
